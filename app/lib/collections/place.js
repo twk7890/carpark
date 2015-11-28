@@ -1,5 +1,10 @@
 Place = new Mongo.Collection("place");
 
+var Locations=[
+{label:"Monko",value:"MONKO"},
+{label:"Tin Shui Wai",value:"TSW"},
+{label:"Hung Hom",value:"HH"},
+];
 
 Place.attachSchema(new SimpleSchema({
     userId: {
@@ -8,11 +13,14 @@ Place.attachSchema(new SimpleSchema({
           omit:true
         },
         autoValue(){
-          return Meteor.userId() || "";
+          return Meteor.userId() ;
         }
     },
     region: {
-        type: String
+        type: String,
+        autoform:{
+          options:Locations,
+        }
     },
     address: {
         type: String

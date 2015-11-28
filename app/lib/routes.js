@@ -14,6 +14,10 @@ Router.route('Renter', {
 
 });
 Router.route('BossAddPlace', {
-	path:'boss/BossAddPlace'
+	path:'boss/BossAddPlace',
+	// onBeforeAction: function () {
+ //      AccountsEntry.signInRequired(this);
+ //      this.next();
+ //    }
 
 });
