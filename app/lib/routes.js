@@ -13,3 +13,7 @@ Router.route('Renter', {
 	path:'/renter'
 
 });
+Router.route('BossAddPlace', {
+	path:'boss/BossAddPlace'
+
+});
