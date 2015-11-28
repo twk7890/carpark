@@ -1,6 +1,15 @@
+Router.configure({
+	layoutTemplate: 'MasterLayout',
+	loadingTemplate: 'Loading',
+	notFoundTemplate: 'notFound'
+});
 
 Router.route('/', {
-  name: 'home',
-  controller: 'HomeController',
-  where: 'client'
+  name: 'Home',
+
+});
+
+Router.route('Renter', {
+	path:'/renter'
+
 });
