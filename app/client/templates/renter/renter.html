@@ -6,23 +6,23 @@
 					<h1 class="page-header">
 						<!-- Single button -->
 						<div class="btn-group">
-							<button type="button" id="localBtn" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Location <span class="caret"></span>
 							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">All</a></li>
+							<ul class="dropdown-menu" id="localBtn" >
+								<li><a href="javascript:void(0);">All</a></li>
 								<li role="separator" class="divider"></li>
 								{{#each locations}}
-								<li><a href="#">{{label}}</a></li>
+								<li><a href="javascript:void(0);">{{label}}</a></li>
 								{{/each}}
 							</ul>
 						</div>
 						<!-- Single button -->
 						<div class="btn-group">
-							<button type="button" id="dateBtn"class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button type="button"  class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Date <span class="caret"></span>
 							</button>
-							<ul class="dropdown-menu">
+							<ul class="dropdown-menu" id="dateBtn">
 								<li><a href="#">All</a></li>
 								<li role="separator" class="divider"></li>
 								{{#each Location}}
@@ -39,7 +39,7 @@
 				<div class="col-sm-6 col-lg-4 col-md-4">
 					<div class="thumbnail">
 						<div class="caption">
-							<h4 class="pull-right">{{rendFee}}</h4>
+							<h4 class="pull-right">${{rendFee}}/hr</h4>
 							<h4><a href="#">{{userName}}</a>
 							</h4>
 							<button type="button" class="btn btn-primary right bs-docs-popover"  data-toggle="modal" data-target="#insert" style="float:right">Ask for</button>
