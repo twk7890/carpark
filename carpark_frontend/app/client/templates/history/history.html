@@ -1,0 +1,50 @@
+<template name="Historylist">
+<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+<h1 class="page-header">
+						<!-- Single button -->
+						<div class="btn-group">
+							<button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								State <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" id="stateBtn" >
+								<li ><a href="javascript:void(0);">All</a></li>
+								<li role="separator" class="divider"></li>
+								{{#each list}}
+								<li><a href="#">{{label}}</a></li>
+								{{/each}}
+							</ul>
+						</div>
+</h1>
+<ul>
+{{#each place}}
+	<div class="col-sm-6 col-lg-4 col-md-4">
+	<div class="thumbnail">
+						<div class="caption">
+							<h4 class="pull-right">${{rendFee}}/hr</h4>
+							<h4>{{address}}</h4>
+							<p>{{activeTime}}</p>
+
+							<div class="dropdown" id="stateUP">
+    						<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{state}}
+    						<span class="caret"></span></button>
+    						<ul class="dropdown-menu">
+    						{{#each list2}}
+     						 <li><a href="#">{{label}}</a></li>
+    						{{/each}}
+
+    </ul>
+    </div>
+    </div>
+  </div>
+		</div>
+{{/each}}
+</ul>
+
+</div>
+</div>
+</div>
+</template>
+
+

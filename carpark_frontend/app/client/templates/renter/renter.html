@@ -1,0 +1,88 @@
+<template name="Renter">
+	<div class="renter">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 class="page-header">
+						<!-- Single button -->
+						<div class="btn-group">
+							<button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Location <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" id="localBtn" >
+								<li><a href="javascript:void(0);">All</a></li>
+								<li role="separator" class="divider"></li>
+								{{#each locations}}
+								<li><a href="javascript:void(0);">{{label}}</a></li>
+								{{/each}}
+							</ul>
+						</div>
+						<!-- Single button -->
+						<div class="btn-group">
+							<button type="button"  class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Date <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" id="dateBtn">
+								<li><a href="#">All</a></li>
+								<li role="separator" class="divider"></li>
+								{{#each Location}}
+								<li><a href="#">Separated link</a></li>
+								{{/each}}
+							</ul>
+						</div>
+						<small>Secondary Text</small>
+					</h1>
+				</div>
+			</div>
+			<div class="row">
+				{{#each data}}
+				<div class="col-sm-6 col-lg-4 col-md-4">
+					<div class="thumbnail">
+						<div class="caption">
+							<h4 class="pull-right">${{rendFee}}/hr</h4>
+							<h4><a href="#">{{userName}}</a>
+							</h4>
+							<button type="button" class="btn btn-primary right bs-docs-popover"  data-toggle="modal" data-target="#insert" style="float:right">Ask for</button>
+							<p>{{address}}</p>
+							<p>free solt: {{activeTime}}
+							</p>
+						</div>
+						<div class="caption ratings">
+							<!-- <p class="pull-right">15 reviews</p> -->
+							<p></p>
+							<!-- 
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+							</p> -->
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+		<!-- /.container -->  
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="insert"  aria-hidden="true" data-dismiss="modal" style="width: 100%;">
+		<div class="modal-dialog" style="margin-top:30%" role="document">
+			<div class="modal-content">
+				<!-- <div class="modal-header"> -->
+				<h1 class="modal-title" >Add Booking</h1>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<!-- </div> -->
+				<!-- <div class="modal-body"> -->
+				<div>
+					<div class="form-group">
+						<!-- <div class="modal-footer"> -->					
+						 {{> quickForm collection="UserRequest" id="insertRequestForm" type="insert"}}
+						<button type="reset" class="btn btn-default">Reset Form</button>
+						<button class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
