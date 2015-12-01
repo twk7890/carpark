@@ -29,12 +29,12 @@ Template.Renter.helpers({
 		var q=Router.current().params.query;
 		if (typeof q.location !="undefined" && typeof q.date != "undefined") {
 			if (q.location!="All") 
-				{query.push({region:q.location})};
+				{query.region=q.location;};
 			if (q.date!="All")
-			 {query.push({timezone:q.date})};				
+			 {query.timezone=q.date;};				
 			return 	Place.find(query,{userId:1,region:1,address:1,timezone:1,rendFee:1});
 		}else
-		return Place.find({state:'ACTIVE'},{userId:1,region:1,address:1,timezone:1,rendFee:1});
+		return Place.find({state:'ACTIVE'},{timezone:0,userId:1,region:1,address:1,rendFee:1});
 	},
 	userName:function(){
 		var name=Meteor.users.findOne({_id:this.userId}).profile.name;
