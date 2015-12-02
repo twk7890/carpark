@@ -4,21 +4,17 @@ Router.configure({
 	notFoundTemplate: 'notFound'
 });
 
-Router.route('/', {
-  name: 'Home',
-
-});
 
 Router.route('Renter', {
-	path:'/renter'
+	path:'/'
 
 });
 Router.route('BossAddPlace', {
 	path:'boss/BossAddPlace'
-	// onBeforeAction: function () {
-    //  AccountsEntry.signInRequired(this);
-     //  this.next();
-// }
+	//onBeforeAction: function () {
+	//	
+	//	this.next();
+	//}
 
 });
 

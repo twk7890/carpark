@@ -10,4 +10,5 @@ ServiceConfiguration.configurations.upsert(
 );
 
 Meteor.startup(function () {
+  
 });

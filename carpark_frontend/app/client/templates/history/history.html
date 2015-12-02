@@ -1,50 +1,79 @@
 <template name="Historylist">
-<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-<h1 class="page-header">
-						<!-- Single button -->
-						<div class="btn-group">
-							<button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								State <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" id="stateBtn" >
-								<li ><a href="javascript:void(0);">All</a></li>
-								<li role="separator" class="divider"></li>
-								{{#each list}}
-								<li><a href="#">{{label}}</a></li>
-								{{/each}}
-							</ul>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">
+					<!-- Single button -->
+					<div class="btn-group">
+						<button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							State <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" id="stateBtn" >
+							<li ><a href="javascript:void(0);">All</a></li>
+							<li role="separator" class="divider"></li>
+							{{#each list}}
+							<li><a href="#">{{label}}</a></li>
+							{{/each}}
+						</ul>
+					</div>
+				</h1>
+				<ul>
+					{{#each place}}
+					<div class="col-sm-6 col-lg-4 col-md-4">
+						<div class="thumbnail">
+							<div class="caption">
+								<h4 class="pull-right">${{rendFee}}/hr</h4>
+								<h4>{{address}}</h4>
+								<p><button type="button" class="btn btn-primary right bs-docs-popover"  data-toggle="modal" data-target="#request" style="float:right">Request</button></p>
+								<p>{{activeTime}}</p>
+							
+								
+								
+								<div class="dropdown" id="stateUP">
+
+									<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{state}}
+										<span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											{{#each list2}}
+											<li><a href="#">{{label}}</a></li>
+											{{/each}}
+
+										</ul>
+									</div>
+								</div>
+							</div>
 						</div>
-</h1>
-<ul>
-{{#each place}}
-	<div class="col-sm-6 col-lg-4 col-md-4">
-	<div class="thumbnail">
-						<div class="caption">
-							<h4 class="pull-right">${{rendFee}}/hr</h4>
-							<h4>{{address}}</h4>
-							<p>{{activeTime}}</p>
+						{{/each}}
+					</ul>
 
-							<div class="dropdown" id="stateUP">
-    						<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{state}}
-    						<span class="caret"></span></button>
-    						<ul class="dropdown-menu">
-    						{{#each list2}}
-     						 <li><a href="#">{{label}}</a></li>
-    						{{/each}}
-
-    </ul>
-    </div>
-    </div>
-  </div>
+				</div>
+			</div>
 		</div>
-{{/each}}
-</ul>
 
-</div>
-</div>
-</div>
-</template>
+		<div class="modal fade" id="request"  aria-hidden="true" data-dismiss="modal" style="width: 100%;">
+			<div class="modal-dialog" style="margin-top:10%" role="document">
+				<div class="modal-content" style="padding: 20px;">
+					<!-- <div class="modal-header"> -->
+					<h1 class="modal-title" >Request User List</h1>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="reId">&times;</span></button>
+					<!-- </div> -->
+					<!-- <div class="modal-body"> -->
+					<div>
+						{{#each request}}
+						<h4>{{userName}}</h4>
+						<p class="pull-right"><button class="btn btn-primary dropdown-toggle" id="accept">Accept</button>
+							<button class="btn btn-danger dropdown-toggle" id="decline">Decline</button>
+						</p>
+						<p>{{phonenum}}</p>
+
+						<p>{{comment}}</p>
+						
+						<hr>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
 
 
