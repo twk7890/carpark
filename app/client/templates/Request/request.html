@@ -1,0 +1,23 @@
+<template name="request">
+	{{#each request}}
+	<div class="col-sm-6 col-lg-4 col-md-4">
+		<div class="thumbnail">
+			<div class="caption">
+
+				<h4>{{address}}</h4>
+				<h4>{{userName}}</h4>
+				<p class="pull-right"><button class="btn btn-primary dropdown-toggle" id="accept">Accept
+				</button>
+				<button class="btn btn-danger dropdown-toggle" id="decline">Decline</button>
+			</p>
+			<p>Phone Number: {{phonenum}}</p>
+
+			<p>Comments: {{comment}}</p>
+
+
+	</div>
+</div>
+</div>
+
+{{/each}}
+</template>

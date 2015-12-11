@@ -23,12 +23,24 @@
 						<li>
 							<a href="{{ pathFor 'Renter' }}">Location</a>
 						</li>
+						{{#if currentUser}}
 						<li>
-							<a href="#">History</a>
+							<a href="{{ pathFor 'Historylist' }}">History</a>
 						</li>
+						<li>
+						<a href="{{ pathFor 'ParkStatus' }}">ParkStatus</a>
+						</li>
+						<li>
+							<a href="{{ pathFor 'Request' }}">Request</a>
+						</li>
+						
+						<li>
+							<a href="{{ pathFor 'BossAddPlace' }}">Provide your place</a>
+						</li>
+						{{/if}}
 					</ul>
 					<div style="float:right">
-					{{> loginButtons}}
+						{{> loginButtons}}
 					</div>
 				</div>
 				<!-- /.navbar-collapse -->

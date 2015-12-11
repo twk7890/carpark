@@ -17,7 +17,7 @@
 								{{/each}}
 							</ul>
 						</div>
-						<!-- Single button -->
+						<!-- Single button 
 						<div class="btn-group">
 							<button type="button"  class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Date <span class="caret"></span>
@@ -29,22 +29,26 @@
 								<li><a href="#">Separated link</a></li>
 								{{/each}}
 							</ul>
-						</div>
-						<small>Secondary Text</small>
+						</div> -->
+						
 					</h1>
 				</div>
 			</div>
 			<div class="row">
 				{{#each data}}
 				<div class="col-sm-6 col-lg-4 col-md-4">
-					<div class="thumbnail">
+					<div class="thumbnail" name="{{record}}">
 						<div class="caption">
 							<h4 class="pull-right">${{rendFee}}/hr</h4>
-							<h4><a href="#">{{userName}} ({{region}}) on {{timezone}}</a>
+							<h4><a href="#">{{userName}} ({{region}})</a>
 							</h4>
-							<button type="button" class="btn btn-primary right bs-docs-popover"  data-toggle="modal" data-target="#insert" style="float:right">Ask for</button>
+							{{#if currentUser}}
+							<button type="button" class="btn btn-primary right bs-docs-popover"  data-toggle="modal" data-target="#insert" style="float:right" id="record">Ask for</button>
+							{{else}}
+							{{> loginButtons}}
+							{{/if}}
 							<p>{{address}}</p>
-							<p>free solt
+							<p>free solt: {{activeTime}}
 							</p>
 						</div>
 						<div class="caption ratings">
@@ -67,7 +71,7 @@
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="insert"  aria-hidden="true" data-dismiss="modal" style="width: 100%;">
-		<div class="modal-dialog" style="margin-top:30%" role="document">
+		<div class="modal-dialog" style="margin-top:10%" role="document">
 			<div class="modal-content">
 				<!-- <div class="modal-header"> -->
 				<h1 class="modal-title" >Add Booking</h1>
@@ -75,12 +79,12 @@
 				<!-- </div> -->
 				<!-- <div class="modal-body"> -->
 				<div>
-					<div class="form-group">
-						<!-- <div class="modal-footer"> -->
-						<button type="submit" class="btn btn-primary">Add Booking</button>
-						<button type="reset" class="btn btn-default">Reset Form</button>
-						<button class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
+
+					<!-- <div class="modal-footer"> -->					
+					{{> quickForm collection="UserRequest" id="RequestForm" type="insert"}}
+
+					<button class="btn btn-default" data-dismiss="modal">Close</button>
+
 				</div>
 			</div>
 		</div>

@@ -4,20 +4,28 @@ Router.configure({
 	notFoundTemplate: 'notFound'
 });
 
-Router.route('/', {
-  name: 'Home',
-
-});
 
 Router.route('Renter', {
-	path:'/renter'
+	path:'/'
 
 });
 Router.route('BossAddPlace', {
-	path:'boss/BossAddPlace',
-	// onBeforeAction: function () {
- //      AccountsEntry.signInRequired(this);
- //      this.next();
- //    }
+	path:'boss/BossAddPlace'
+	//onBeforeAction: function () {
+	//	
+	//	this.next();
+	//}
 
+});
+
+Router.route('Historylist', {
+	path:'/historylist'
+});
+
+Router.route('ParkStatus', {
+	path:'/parkStatus'
+});
+
+Router.route('Request', {
+	path:'/request'
 });
