@@ -49,9 +49,10 @@ Template.Renter.helpers({
 	},
 	locations:function(){
 		var Locations=[
-		{label:"Mong Kok",value:"MK"},
-		{label:"Tin Shui Wai",value:"TSW"},
-		{label:"Hung Hom",value:"HH"},
+		{label:"car park 1",value:"p1"},
+		{label:"car park 2",value:"p2"},
+		{label:"car park 3",value:"p3"},
+		{label:"car park 4",value:"p4"}
 		];
 		return Locations;
 	}

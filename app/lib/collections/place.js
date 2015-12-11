@@ -1,9 +1,10 @@
 Place = new Mongo.Collection("place");
 
 var Locations=[
-{label:"Mong Kok",value:"MK"},
-{label:"Tin Shui Wai",value:"TSW"},
-{label:"Hung Hom",value:"HH"},
+{label:"car park 1",value:"p1"},
+{label:"car park 2",value:"p2"},
+{label:"car park 3",value:"p3"},
+{label:"car park 4",value:"p4"}
 ];
 
 var time=[
@@ -34,54 +35,54 @@ var time=[
 ];
 
 Place.attachSchema(new SimpleSchema({
-    userId: {
-        type: String,
-        autoform:{
-          omit:true
-        },
-        autoValue(){
-          return Meteor.userId() ;
-        }
+  userId: {
+    type: String,
+    autoform:{
+      omit:true
     },
-    region: {
-        type: String,
-        autoform:{
-          options:Locations
-        }
-    },
-    address: {
-        type: String
-    },
-    activeTime: {
-        type: String,
-        autoform:{
-          options:time
-        }
-    },
-    rendFee:{
-      type: Number
-    },
-    state: {
-      type: String,
-      autoform: {
-            type: "select",
-            options: function () {
-              return [
-                {label: "active", value: "ACTIVE"},
-                {label: "suspend", value: "SUSPEND"}
-              ];
-            }
-      }
-    },
-    createdAt:{
-      type:Date,
-      autoform:{
-        omit:true
-      },
-      autoValue(){
-        return this.isInsert? new Date(): this.val;
+    autoValue(){
+      return Meteor.userId() ;
+    }
+  },
+  region: {
+    type: String,
+    autoform:{
+      options:Locations
+    }
+  },
+  address: {
+    type: String
+  },
+  activeTime: {
+    type: String,
+    autoform:{
+      options:time
+    }
+  },
+  rendFee:{
+    type: Number
+  },
+  state: {
+    type: String,
+    autoform: {
+      type: "select",
+      options: function () {
+        return [
+        {label: "active", value: "ACTIVE"},
+        {label: "suspend", value: "SUSPEND"}
+        ];
       }
     }
+  },
+  createdAt:{
+    type:Date,
+    autoform:{
+      omit:true
+    },
+    autoValue(){
+      return this.isInsert? new Date(): this.val;
+    }
+  }
 }));
 
 // Place.insert({userId: "SDwfcdffs", region: "Mong Kok", address: "Address1", activeTime: "12:00", rendFee: 30, state: "ACTIVE", createdAt: new Date});
