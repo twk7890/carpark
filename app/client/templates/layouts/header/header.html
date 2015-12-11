@@ -17,16 +17,19 @@
 					<ul class="nav navbar-nav">
 						{{#if currentUser}}
 						<li>
-							<a href="#">Switch role</a>
+							<a href="javascript:void(0);" id="switchRole">Switch role</a>
 						</li>
 						{{/if}}
+						{{#if currentUser}}
+						{{#if renterRole}}
 						<li>
 							<a href="{{ pathFor 'Renter' }}">Location</a>
 						</li>
-						{{#if currentUser}}
+						
 						<li>
 							<a href="{{ pathFor 'Historylist' }}">History</a>
 						</li>
+						{{else}}
 						<li>
 						<a href="{{ pathFor 'ParkStatus' }}">ParkStatus</a>
 						</li>
@@ -37,6 +40,7 @@
 						<li>
 							<a href="{{ pathFor 'BossAddPlace' }}">Provide your place</a>
 						</li>
+						{{/if}}
 						{{/if}}
 					</ul>
 					<div style="float:right">

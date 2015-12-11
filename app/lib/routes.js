@@ -7,7 +7,6 @@ Router.configure({
 
 Router.route('Renter', {
 	path:'/'
-
 });
 Router.route('BossAddPlace', {
 	path:'boss/BossAddPlace'
