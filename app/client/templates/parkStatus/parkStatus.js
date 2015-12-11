@@ -46,14 +46,6 @@ Template.parkStatus.events({
 		var UPState=typeof this.value=="undefined"?"All":this.value;
 		var PlaceId = Session.get('Place');
 		Place.update({ _id: PlaceId }, {$set: { state: UPState }});
-	},
-	'click #accept': function(event){
-		var requestId = this._id;
-		UserRequest.update({_id: requestId}, {state: "ACCEPT"});
-	},
-	'click #decline': function(event){
-		var requestId = this._id;
-		UserRequest.update({_id: requestId}, {state: "DECLINE"});
 	}
 });
 

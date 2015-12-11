@@ -34,7 +34,7 @@ comment: {
  }
 },
 state: {
-  type: String,
+  type: Number,
   autoform:{
     omit:true
   },
