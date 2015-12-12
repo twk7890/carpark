@@ -60,7 +60,8 @@ Place.attachSchema(new SimpleSchema({
     }
   },
   rendFee:{
-    type: Number
+    type: Number,
+    label:"Rend Fee per Hour"
   },
   state: {
     type: String,
