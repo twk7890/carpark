@@ -10,14 +10,14 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Car park finder</a>
+					<a class="navbar-brand" href="/">Car park finder</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						{{#if currentUser}}
 						<li>
-								<a >You are {{roleName}} now</a>
+								<a >{{userName}} -- ( {{roleName}} ) </a>
 						</li>
 						<li>
 							<a href="javascript:void(0);" id="switchRole">Switch role</a>
@@ -25,33 +25,44 @@
 						{{/if}}
 						{{#if currentUser}}
 
-						{{#if renterRole}}
+							{{#if renterRole}}
 
-						<li>
-							<a href="{{ pathFor 'Renter' }}">Find Your CarPark</a>
-						</li>
+							<li>
+								<a class="clickForHide" href="{{ pathFor 'Renter' }}">Find Your CarPark</a>
+							</li>
 
-						<li>
-							<a href="{{ pathFor 'Historylist' }}">My Transactions</a>
-						</li>
-						{{else}}
-						<li>
-						<a href="{{ pathFor 'ParkStatus' }}">ParkStatus</a>
-						</li>
-						<li>
-							<a href="{{ pathFor 'Request' }}">Request</a>
-						</li>
+							<li>
+								<a class="clickForHide" href="{{ pathFor 'Historylist' }}">My Transactions</a>
+							</li>
+							{{else}}
+							<li>
+							<a class="clickForHide" href="{{ pathFor 'ParkStatus' }}">ParkStatus</a>
+							</li>
+							<li>
+								<a class="clickForHide" href="{{ pathFor 'Request' }}">Request</a>
+							</li>
 
-						<li>
-							<a href="{{ pathFor 'BossAddPlace' }}">Provide your place</a>
-						</li>
+							<li>
+								<a class="clickForHide" href="{{ pathFor 'BossAddPlace' }}">Provide your place</a>
+							</li>
+							{{/if}}
 						{{/if}}
+						{{#if currentUser}}
+							<li>
+								<a class=" fb logout">Logout</a>
+							</li>
+							{{else}}
+							<li>
+								<a class=" fb login">Login from Facebook</a>
+							</li>
 						{{/if}}
+
+
 					</ul>
-					<div style="float:right">
-						{{> loginButtons}}
+					<!-- <div style="float:right"> -->
+						<!-- {{> loginButtons}} -->
 						<!-- <button class="fb">fb</button> -->
-					</div>
+					<!-- </div> -->
 				</div>
 				<!-- /.navbar-collapse -->
 			</div>

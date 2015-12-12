@@ -7,11 +7,17 @@
 .rqForm {
     display: block;
     margin-top: 0em;
-   
+
 }
 .block-div{
 	margin-top: 5%;
 	margin-bottom: 5%;
 	margin-left: 5%;
 	margin-right: 5%;
+}
+
+
+.panel-body{
+  height: 150px;
+  overflow-y: auto;
 }

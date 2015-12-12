@@ -7,7 +7,7 @@
 						<!-- Single button -->
 						<div class="btn-group">
 							<button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Location <span class="caret"></span>
+								{{currentLocal}} <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" id="localBtn" >
 								<li><a href="javascript:void(0);">All</a></li>
@@ -35,59 +35,28 @@
 				</div>
 			</div>
 			<div class="row">
-				{{#each data}}
-				<div class="col-sm-6 col-lg-4 col-md-4">
-
-
-					<div class="panel panel-default">
-					  <div class="panel-heading"><h2>{{userName}} ({{region}})</h2></div>
-					  <div class="panel-body">
-					    <p>{{address}}</p>
-					  </div>
-						<div class="panel-footer">
-							<div style="width:100%">Available form:  {{activeTime}}  <br>  {{rendFee}}/per Hrs </div>
-							{{#if currentUser}}
-								<div><button type="button" class="btn btn-primary right bs-docs-popover"  data-toggle="modal" data-target="#insert"  id="record">Ask for</button></div>
-							{{else}}
-								<div>Login First</div>
-							{{/if}}
+				{{#with data}}
+					{{#each this}}
+					<div class="col-sm-6 col-lg-4 col-md-4">
+						<div class="panel panel-default">
+						  <div class="panel-heading"><h2>{{userName}} ({{region}})</h2></div>
+						  <div class="panel-body">
+						    <p>{{address}}</p>
+						  </div>
+							<div class="panel-footer">
+								<div style="width:100%">Available form:  {{activeTime}}  <br>  {{rendFee}}/per Hrs </div>
+								{{#if currentUser}}
+									<div><button type="button" class="btn btn-primary right bs-docs-popover"  data-toggle="modal" data-target="#insert"  id="record">Ask for</button></div>
+								{{else}}
+									<div>Login First</div>
+								{{/if}}
+							</div>
 						</div>
 					</div>
-
-
-
-
-
-					<!-- <div class="thumbnail" name="{{record}}">
-						<div class="caption">
-							<h4 class="pull-right">${{rendFee}}/hr</h4>
-							<h4><a href="#"></a>
-							</h4>
-							{{#if currentUser}}
-
-							{{else}}
-							{{> loginButtons}}
-							{{/if}}
-
-													</div>
-						<div class="caption ratings">
-							<p class="pull-right">15 reviews</p>
-							<p></p>
-
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-							</p>
-						</div>
-					</div> -->
-
-
-
-
-				</div>
-				{{/each}}
+					{{/each}}
+				{{else}}
+					<div style='text-align:center'> No Record</div>
+				{{/with}}
 			</div>
 		</div>
 		<!-- /.container -->

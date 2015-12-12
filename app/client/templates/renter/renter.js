@@ -1,3 +1,11 @@
+var label2Place = {
+	p1:"car park 1",
+	p2:"car park 2",
+	p3:"car park 3",
+	p4:"car park 4",
+	All:"All"
+}
+
 /*****************************************************************************/
 /* Renter: Event Handlers */
 /*****************************************************************************/
@@ -35,6 +43,9 @@ Template.Renter.events({
 /* Renter: Helpers */
 /*****************************************************************************/
 Template.Renter.helpers({
+	currentLocal(){
+		return label2Place[Router.current().params.query.region || "All" ];
+	},
 	data:function(){
 		var query ={state:'ACTIVE',userId:{$ne:Meteor.userId()}};
 		var q=Router.current().params.query;
@@ -43,9 +54,17 @@ Template.Renter.helpers({
 				{query.region=q.region;};
 			if (q.date!="All")
 				{query.activeTime=Today;};
-			return     Place.find(query,{sort: {activeTime:1, userId:1,region:1,address:1,rendFee:1}});
+			if(Place.find(query,{sort: {activeTime:1, userId:1,region:1,address:1,rendFee:1}}).count() >0)
+				return Place.find(query,{sort: {activeTime:1, userId:1,region:1,address:1,rendFee:1}});
+			else {
+				return false;
+			}
 		}else
-		return Place.find({state:'ACTIVE',userId:{$ne:Meteor.userId()} },{sort: {activeTime:-1,userId:1,region:1,address:1,rendFee:1}});
+			if(Place.find({state:'ACTIVE',userId:{$ne:Meteor.userId()} },{sort: {activeTime:-1,userId:1,region:1,address:1,rendFee:1}}).count()>0)
+				return Place.find({state:'ACTIVE',userId:{$ne:Meteor.userId()} },{sort: {activeTime:-1,userId:1,region:1,address:1,rendFee:1}});
+			else {
+				return false;
+			}
 	},
 	userName:function(){
 		var name=Meteor.users.findOne({_id:this.userId}).profile.name;

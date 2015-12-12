@@ -2,7 +2,10 @@
 /* Header: Event Handlers */
 /*****************************************************************************/
 Template.Header.events({
-	'click .fb'(){
+	'click .clickForHide'(){
+		$('#bs-example-navbar-collapse-1').collapse('hide')
+	},
+	'click .login'(){
 		Meteor.loginWithFacebook(null, function(err){
            if (err) {
                throw new Meteor.Error("Facebook login failed");
@@ -11,6 +14,10 @@ Template.Header.events({
            }
 
     });
+	},
+	'click .logout'(){
+		Accounts.logout();
+		Router.go("Renter");
 	},
 	'click #switchRole':function(e){
 		if (Session.get('Role')== undefined) {
@@ -45,6 +52,9 @@ Template.Header.helpers({
 			default:
 				return "Und"
 		}
+	},
+	userName(){
+		return Meteor.user().profile.name;
 	},
 	renterRole:function(){
 		return Session.get('Role') ==="R";
