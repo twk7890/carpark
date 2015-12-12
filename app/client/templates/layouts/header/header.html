@@ -53,8 +53,8 @@
 								<a class=" fb logout">Logout</a>
 							</li>
 							{{else}}
-							<li>
-								<a class=" fb login">Login from Facebook</a>
+							<li class=" fb logout">
+								<a href="{{ pathFor 'Renter' }}" class=" fb login" style="padding:10px">Login from Facebook</a>
 							</li>
 						{{/if}}
 

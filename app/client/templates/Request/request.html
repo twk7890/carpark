@@ -13,15 +13,18 @@
 						<div class="panel-heading"><h2>{{userName}}</h2></div>
 						<div class="panel-body">
 							<h4>{{address}}</h4>
-							<p>Phone Number: {{phonenum}}</p>
+							<p>Phone Number: <a href="tel:{{phonenum}}">{{phonenum}}</a></p>
 							<p>Comments: {{comment}}</p>
 						</div>
-						<div class="panel-footer">
+						<div class="panel-footer" style="min-height:55px">
 							<!-- <div>Request Status: {{state}}</div> -->
+							{{#if stateCheck}}
 							<button class="btn btn-primary" style="margin-right:20px" id="accept">Accept</button>
 
 							<button class="btn btn-danger" id="decline">Decline</button>
-
+							{{else}}
+							<div>state: {{state}}</div>
+{{/if}}
 						</div>
 					</div>
 
