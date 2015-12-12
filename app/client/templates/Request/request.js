@@ -15,11 +15,12 @@ Template.request.helpers({
 Template.request.events({
 	'click #accept': function(event){
 		var requestId = this._id;
-		console.log(requestId);
+		// console.log(requestId);
 		UserRequest.update({_id: requestId}, {$set: {state: "ACCEPT"}});
 	},
 	'click #decline': function(event){
 		var requestId = this._id;
+		console.log(requestId);
 		UserRequest.update({_id: requestId}, {$set: {state: "DECLINE"}});
 	}
 });

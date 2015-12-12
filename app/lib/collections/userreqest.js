@@ -12,7 +12,7 @@ UserRequest.attachSchema(new SimpleSchema({
     omit:true
   },
   autoValue(){
-    return Meteor.userId() ;
+    return this.isInsert ? Meteor.userId() : this.val ;
   }
 },
 placeId: {
@@ -38,8 +38,8 @@ state: {
   autoform:{
     omit:true
   },
-  autoValue(){        		
-    return request;
+  autoValue(){
+    return this.isInsert ? request : this.val  ;
   }
 },
 createdAt:{
