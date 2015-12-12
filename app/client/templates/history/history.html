@@ -6,21 +6,36 @@
 				<h1 class="page-header">User History</h1>
 
 				{{#each history}}
-				<div class="col-sm-6 col-lg-12 col-md-10">
-					<div class="thumbnail">
+				<!-- <div class="col-sm-6 col-lg-12 col-md-10"> -->
+					<!-- <div class="thumbnail">
 						<div class="caption">
 
 							<h2>{{address}}</h2>
 
 
-							
-							<p>Request Status: {{state}}</p>
-							
 
-							
+
+
+
+
 
 						</div>
+					</div> -->
+				<!-- </div> -->
+
+				<div class="col-sm-6 col-lg-4 col-md-4">
+
+
+					<div class="panel panel-default">
+						<!-- <div class="panel-heading"><h2>{{userName}} ({{region}})</h2></div> -->
+						<div class="panel-body">
+							<p>{{address}}</p>
+						</div>
+						<div class="panel-footer">
+							<div>Request Status: {{state}}</div>
+						</div>
 					</div>
+
 				</div>
 
 				{{/each}}
@@ -28,5 +43,3 @@
 		</div>
 	</div>
 </template>
-
-

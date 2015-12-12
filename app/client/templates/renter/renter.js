@@ -36,16 +36,16 @@ Template.Renter.events({
 /*****************************************************************************/
 Template.Renter.helpers({
 	data:function(){
-		var query ={state:'ACTIVE'};
+		var query ={state:'ACTIVE',userId:{$ne:Meteor.userId()}};
 		var q=Router.current().params.query;
 		if (typeof q.region !="undefined" && typeof q.date != "undefined") {
-			if (q.region!="All") 
+			if (q.region!="All")
 				{query.region=q.region;};
 			if (q.date!="All")
-				{query.activeTime=Today;};                
+				{query.activeTime=Today;};
 			return     Place.find(query,{sort: {activeTime:1, userId:1,region:1,address:1,rendFee:1}});
 		}else
-		return Place.find({state:'ACTIVE'},{sort: {activeTime:-1,userId:1,region:1,address:1,rendFee:1}});
+		return Place.find({state:'ACTIVE',userId:{$ne:Meteor.userId()} },{sort: {activeTime:-1,userId:1,region:1,address:1,rendFee:1}});
 	},
 	userName:function(){
 		var name=Meteor.users.findOne({_id:this.userId}).profile.name;

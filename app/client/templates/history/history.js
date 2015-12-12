@@ -8,4 +8,3 @@ Template.Historylist.helpers({
 		return address;
 	}
 });
-

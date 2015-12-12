@@ -17,17 +17,22 @@
 					<ul class="nav navbar-nav">
 						{{#if currentUser}}
 						<li>
+								<a >You are {{roleName}} now</a>
+						</li>
+						<li>
 							<a href="javascript:void(0);" id="switchRole">Switch role</a>
 						</li>
 						{{/if}}
 						{{#if currentUser}}
+
 						{{#if renterRole}}
+
 						<li>
-							<a href="{{ pathFor 'Renter' }}">Location</a>
+							<a href="{{ pathFor 'Renter' }}">Find Your CarPark</a>
 						</li>
-						
+
 						<li>
-							<a href="{{ pathFor 'Historylist' }}">History</a>
+							<a href="{{ pathFor 'Historylist' }}">My Transactions</a>
 						</li>
 						{{else}}
 						<li>
@@ -36,7 +41,7 @@
 						<li>
 							<a href="{{ pathFor 'Request' }}">Request</a>
 						</li>
-						
+
 						<li>
 							<a href="{{ pathFor 'BossAddPlace' }}">Provide your place</a>
 						</li>
@@ -45,6 +50,7 @@
 					</ul>
 					<div style="float:right">
 						{{> loginButtons}}
+						<!-- <button class="fb">fb</button> -->
 					</div>
 				</div>
 				<!-- /.navbar-collapse -->
