@@ -74,17 +74,25 @@
 		<div class="modal-dialog" style="margin-top:10%" role="document">
 			<div class="modal-content">
 				<!-- <div class="modal-header"> -->
+				<div class="block-div">
 				<h1 class="modal-title" >Add Booking</h1>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<!-- </div> -->
 				<!-- <div class="modal-body"> -->
-				<div id="requestDIV">
+				<div>
 
 					<!-- <div class="modal-footer"> -->					
-					{{> quickForm collection="UserRequest" id="RequestForm" type="insert"}}
-
+				<!--	{{> quickForm collection="UserRequest" id="RequestForm" type="insert"}}-->
+					{{#autoForm collection="UserRequest" id="RequestForm" class="rqForm" type="insert"}}
+					<fieldset>
+					{{> afQuickField name='phonenum'}}
+      				{{> afQuickField name='comment'}}
+					 
+      				</fieldset>
+      				<button type="submit" class="btn btn-primary" id="btnRq">Submit</button>
 					<button class="btn btn-default" data-dismiss="modal">Close</button>
-
+					{{/autoForm}}
+					</div>
 				</div>
 			</div>
 		</div>

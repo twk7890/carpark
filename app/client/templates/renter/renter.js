@@ -24,6 +24,10 @@ Template.Renter.events({
 		var PlaceId = this._id;
 		console.log(PlaceId);
 		Session.set('PlaceSession', PlaceId);
+	},
+	'click #btnRq': function(e){
+		var lctId= this._id;
+		Place.update({_id: lctId}, {$set:{state: "REQUESTED"}});
 	}
 });
 

@@ -2,33 +2,31 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
+				<h1 class="pull-right"><input type="text" class="form-control" placeholder="Search..."></h1>
 				<h1 class="page-header">User History</h1>
-				<h1 class="pull-right"><input type="search" class="glyphicon glyphicon-search"></h1>
+
 				{{#each history}}
-				<div class="col-sm-6 col-lg-4 col-md-4">
+				<div class="col-sm-6 col-lg-12 col-md-10">
 					<div class="thumbnail">
 						<div class="caption">
 
-							<h4>{{address}}</h4>
+							<h2>{{address}}</h2>
 
 
 							
-							<p>Phone Number: {{phonenum}}</p>
-
-							<p>Comments: {{comment}}</p>
 							<p>Request Status: {{state}}</p>
 							
 
 							
 
+						</div>
 					</div>
 				</div>
-			</div>
 
-			{{/each}}
+				{{/each}}
+			</div>
 		</div>
 	</div>
-</div>
-	</template>
+</template>
 
 

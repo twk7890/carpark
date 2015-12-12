@@ -2,6 +2,10 @@
 /* BossAddPlace: Style */
 /*****************************************************************************/
 .boss-add-place {
+	margin-top: 2%;
+	margin-bottom: 10%;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 form {
